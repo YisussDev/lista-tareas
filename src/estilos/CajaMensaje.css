@@ -1,14 +1,50 @@
 .contenedor-tarea{
-    margin: 10px auto;
+    margin-top: 10px;
     display: flex;
-    min-width: 280px;
+    width: 100%;
     height: 60px;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 5px 6px 0px black;
+    background-color: rgb(26, 25, 25);
+    box-shadow: 0px 0px 3px 1px black;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.5s;
+}
+.contenedor-tarea:hover{
+    background-color: rgb(43, 43, 43);
+    cursor: pointer;
+}
+.contenedor-tarea-c{
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(0, 255, 34);
+    box-shadow: 0px 0px 3px 1px black;
     color: rgb(0, 0, 0);
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0px 10px;
     border-radius: 10px;
-    cursor: pointer;
     font-weight: bold;
+    transition: 0.5s;
+}
+.contenedor-tarea-c:hover{
+    background-color: rgb(0, 255, 76); 
+    cursor:pointer;
+}
+.bt:hover{
+    background-color: rgb(30,30, 30);
+    cursor: pointer;
+}
+.bt {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(177, 177, 177);
+    border: 0px ;
+    border-radius: 20px;
+    margin: 0px 2px;
 }
