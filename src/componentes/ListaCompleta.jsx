@@ -1,10 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../estilos/ListaCompleta.css'
 import FormularioTexto from "./Formulario";
 import CajaMensaje from './CajaMensajes';
 import '../estilos/Formulario.css'
 
 export default function ListaTareas (){
+    useEffect(()=>
+        {const inicio = JSON.stringify([])
+            localStorage.setItem('Data', localStorage.getItem('Data')||inicio)
+        
+            let tareasL = JSON.parse(localStorage.getItem('Data'))
+        
+            setTareas(tareasL)},[]
+    )
+    const guardarDatos = () =>{
+        localStorage.setItem('Data', JSON.stringify(tareas))
+    }
+    setInterval(()=>guardarDatos(), 500)
 
     const [tareas, setTareas]=useState([]);
     const [ea, setEA]=useState(false);
@@ -16,12 +28,14 @@ export default function ListaTareas (){
             tarea.texto = tarea.texto.trim();
             const tareasActualizadas = [tarea, ...tareas];
             setTareas(tareasActualizadas);
+            localStorage.setItem('Data', JSON.stringify(tareas))
           }
     }
     const eliminarTarea = (e) => {
         console.log(e.target.id)
         let newA = tareas.filter(fil => fil.id !== e.target.id)
         setTareas(newA)
+        localStorage.setItem('Data', JSON.stringify(tareas))
     }
     const abrirEditor = (e) => {
         tareas.forEach((tar, indice) => {if(tar.id === e.target.id){
@@ -42,14 +56,18 @@ export default function ListaTareas (){
         document.getElementById("entradaE").value = null;
         setInput('')
         setEA(false)
+        localStorage.setItem('Data', JSON.stringify(tareas))
     }
     
     const click = (e) => {
         let selector = document.getElementById(`${e.target.id}`)
         if(selector.className === 'contenedor-tarea'){
             selector.className='contenedor-tarea-c'
+
+            localStorage.setItem('Data', JSON.stringify(tareas))
         }else{
             selector.className='contenedor-tarea'
+            localStorage.setItem('Data', JSON.stringify(tareas))
         }
     }
 
